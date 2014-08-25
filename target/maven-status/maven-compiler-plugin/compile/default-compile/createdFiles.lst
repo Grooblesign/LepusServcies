@@ -1,4 +1,5 @@
 uk\me\paulgarner\lepus\services\MailService.class
 uk\me\paulgarner\lepus\services\HelloService.class
-uk\me\paulgarner\lepus\beans\SendMailBean.class
 uk\me\paulgarner\lepus\models\MailMessage.class
+uk\me\paulgarner\lepus\beans\SendMailBean.class
+uk\me\paulgarner\lepus\beans\ReceiveMailBean.class
