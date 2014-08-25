@@ -16,8 +16,6 @@ import javax.jms.TextMessage;
     })
 public class ReceiveMailBean implements MessageListener {
 
-	public ReceiveMailBean() {}
-
 	@Override
 	public void onMessage(Message message) {
 		System.out.println("======= Message =======");

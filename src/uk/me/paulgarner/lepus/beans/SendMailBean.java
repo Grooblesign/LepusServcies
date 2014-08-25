@@ -10,8 +10,6 @@ import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
 
-@Named
-@Stateless
 public class SendMailBean {
 
 	@Resource(mappedName = "java:/JmsXA")
