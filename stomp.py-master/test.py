@@ -27,11 +27,11 @@ class MyListener(object):
 conn = stomp.Connection()
 conn.set_listener('', MyListener())
 conn.start()
-conn.connect(username="admin",passcode="admin",wait=True)
+conn.connect()
 
 conn.subscribe(destination=sys.argv[1], id=1, ack='auto')
 
 #conn.send(body=' '.join(sys.argv[1:]), destination='testQueue')
 
-time.sleep(10)
+time.sleep(30)
 conn.disconnect()

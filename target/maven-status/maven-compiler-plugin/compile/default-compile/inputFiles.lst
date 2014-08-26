@@ -1,4 +1,5 @@
-C:\dev\Lepus\LepusServcies-master\src\uk\me\paulgarner\lepus\beans\SendMailBean.java
-C:\dev\Lepus\LepusServcies-master\src\uk\me\paulgarner\lepus\models\MailMessage.java
-C:\dev\Lepus\LepusServcies-master\src\uk\me\paulgarner\lepus\services\HelloService.java
-C:\dev\Lepus\LepusServcies-master\src\uk\me\paulgarner\lepus\services\MailService.java
+C:\dev\Lepus\LepusServcies-master\src\net\atos\lepus\services\MailService.java
+C:\dev\Lepus\LepusServcies-master\src\net\atos\lepus\models\MailMessage.java
+C:\dev\Lepus\LepusServcies-master\src\net\atos\lepus\services\HelloService.java
+C:\dev\Lepus\LepusServcies-master\src\net\atos\lepus\beans\ReceiveMailBean.java
+C:\dev\Lepus\LepusServcies-master\src\net\atos\lepus\beans\SendMailBean.java
