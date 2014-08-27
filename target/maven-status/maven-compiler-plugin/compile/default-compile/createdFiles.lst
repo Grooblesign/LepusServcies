@@ -1,5 +1,6 @@
-net\atos\lepus\beans\SendMailBean.class
 net\atos\lepus\services\MailService.class
 net\atos\lepus\beans\ReceiveMailBean.class
+TempUnitTest.class
+net\atos\lepus\beans\SendMailBean.class
 net\atos\lepus\models\MailMessage.class
 net\atos\lepus\services\HelloService.class
