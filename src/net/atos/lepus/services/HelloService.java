@@ -38,7 +38,7 @@ public class HelloService {
 		message.setFrom(100000);
 		message.setTo(100000);
 		message.setSubject("Hello");
-		message.setBody("Hello World in XML");
+		message.setMessage("Hello World in XML");
 		
 		return message;
 	}

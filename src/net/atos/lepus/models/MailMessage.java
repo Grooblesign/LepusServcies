@@ -1,14 +1,26 @@
 package net.atos.lepus.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Entity
+@Table(name = "mail")
 @XmlRootElement(name = "MailMessage")
 public class MailMessage {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY) 
+	int id;
+	@Column(name = "Sender")
 	int from;
+	@Column(name = "Recipient")
 	int to;
 	String subject;
-	String body;
+	String message;
 	
 	@XmlElement
 	public int getFrom() {
@@ -35,10 +47,10 @@ public class MailMessage {
 	}
 	
 	@XmlElement
-	public String getBody() {
-		return body;
+	public String getMessage() {
+		return message;
 	}
-	public void setBody(String body) {
-		this.body = body;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 }

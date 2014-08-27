@@ -31,7 +31,8 @@ public class SendMailBean {
 			Session sess = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
 			MessageProducer producer = sess.createProducer(testQueue);
-			producer.send(sess.createTextMessage(String.format("%s - %s", bodyText, System.currentTimeMillis())));
+			// producer.send(sess.createTextMessage(String.format("%s - %s", bodyText, System.currentTimeMillis())));
+			producer.send(sess.createTextMessage(bodyText));
 
 			logger.info("Message sent");
 		} catch (Exception e) {

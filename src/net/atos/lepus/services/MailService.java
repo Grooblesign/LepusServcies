@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import net.atos.lepus.beans.SendMailBean;
 import net.atos.lepus.models.MailMessage;
@@ -28,7 +32,7 @@ public class MailService {
 		message.setFrom(100000);
 		message.setTo(100000);
 		message.setSubject("Hello");
-		message.setBody("Hello World in Json");
+		message.setMessage("Hello World in Json");
 
 		messages.add(message);
 
@@ -37,11 +41,9 @@ public class MailService {
 		message.setFrom(100000);
 		message.setTo(100000);
 		message.setSubject("Hello again");
-		message.setBody("Hello World 2 in Json");
+		message.setMessage("Hello World 2 in Json");
 
 		messages.add(message);
-
-		bean.send("Hello from the mail service");
 		
 		return messages;
 	}
@@ -58,7 +60,7 @@ public class MailService {
 		message.setFrom(100000);
 		message.setTo(100000);
 		message.setSubject("Hello");
-		message.setBody("Hello World in XML");
+		message.setMessage("Hello World in XML");
 
 		messages.add(message);
 
@@ -67,10 +69,20 @@ public class MailService {
 		message.setFrom(100000);
 		message.setTo(100000);
 		message.setSubject("Hello again");
-		message.setBody("Hello World 2 in XML");
+		message.setMessage("Hello World 2 in XML");
 
 		messages.add(message);
 
 		return messages;
 	}
+	
+	@POST
+	@Produces(MediaType.TEXT_PLAIN)
+	@Path("/messagesXML")
+	public Response sendMessage(@FormParam("message") String message) {
+
+		bean.send(message);
+
+        return Response.ok("message=" + message).build();
+    }		
 }
