@@ -26,8 +26,8 @@ public class MailService {
 
 	static Logger logger = Logger.getLogger(MailService.class);  
 	
-		@PersistenceContext
-		EntityManager entityManager;
+	@PersistenceContext
+	EntityManager entityManager;
 
 	@Inject SendMailBean bean = new SendMailBean();
 
