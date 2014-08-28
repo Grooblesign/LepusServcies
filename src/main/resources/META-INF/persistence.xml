@@ -5,7 +5,10 @@
 	<persistence-unit name="MySQLPU" transaction-type="JTA">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>  
 		<jta-data-source>java:/MySqlDS</jta-data-source>
+		
 		<class>net.atos.lepus.models.MailMessage</class>
+		<class>net.atos.lepus.models.User</class>
+		
 		<properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>  
 		</properties>

@@ -1,78 +1,93 @@
 package net.atos.lepus.services;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import net.atos.lepus.beans.SendMailBean;
 import net.atos.lepus.models.MailMessage;
 
+import org.jboss.logging.Logger;
+
 @Path("/mail")
 public class MailService {
 
-	@Inject SendMailBean bean;
+	static Logger logger = Logger.getLogger(MailService.class);  
 	
+		@PersistenceContext
+		EntityManager entityManager;
+
+	@Inject SendMailBean bean = new SendMailBean();
+
 	@GET
 	@Path("/messagesJson")
 	@Produces("application/json")
-	public List<MailMessage> getMessagesInJson() {
+	public Collection<MailMessage> getMessagesInJson() {
 
-		List<MailMessage> messages = new ArrayList<MailMessage>();
-
-		MailMessage message = new MailMessage();
-
-		message.setFrom(100000);
-		message.setTo(100000);
-		message.setSubject("Hello");
-		message.setMessage("Hello World in Json");
-
-		messages.add(message);
-
-		message = new MailMessage();
-
-		message.setFrom(100000);
-		message.setTo(100000);
-		message.setSubject("Hello again");
-		message.setMessage("Hello World 2 in Json");
-
-		messages.add(message);
-		
+		Query query = entityManager.createQuery("SELECT m FROM MailMessage m");
+	    @SuppressWarnings("unchecked")
+		Collection<MailMessage> messages = (Collection<MailMessage>) query.getResultList();
+	    
 		return messages;
+	}
+
+	@GET
+	@Path("/message/{id}")
+	@Produces("application/json")
+	public Response getMessageJson(@PathParam("id") int id) {
+
+		return getMessage(id);
+	}
+	
+	@GET
+	@Path("/message/{id}")
+	@Produces("application/xml")
+	public Response getMessageInXML(@PathParam("id") int id) {
+
+		return getMessage(id);
+	}
+
+	private Response getMessage(int id) {
+		
+		Response response= null;
+		
+		try {
+			MailMessage message = entityManager.find(MailMessage.class, id);
+			
+			if (message == null) { 
+				response = Response.status(Status.NOT_FOUND).build();;
+			} else {
+				response = Response.ok(message).build();
+			}
+		} catch (Exception exception) {
+			logger.error("Exception: " + exception.getClass().toString() + " - " + exception.getMessage());;
+			response = Response.status(Status.INTERNAL_SERVER_ERROR).build();
+		}
+		
+		return response;
 	}
 
 	@GET
 	@Path("/messagesXML")
 	@Produces("application/xml")
-	public List<MailMessage> getMessagesInXML() {
+	public Collection<MailMessage> getMessagesInXML() {
 
-		List<MailMessage> messages = new ArrayList<MailMessage>();
-
-		MailMessage message = new MailMessage();
-
-		message.setFrom(100000);
-		message.setTo(100000);
-		message.setSubject("Hello");
-		message.setMessage("Hello World in XML");
-
-		messages.add(message);
-
-		message = new MailMessage();
-
-		message.setFrom(100000);
-		message.setTo(100000);
-		message.setSubject("Hello again");
-		message.setMessage("Hello World 2 in XML");
-
-		messages.add(message);
-
+		Query query = entityManager.createQuery("SELECT m FROM MailMessage m");
+	    @SuppressWarnings("unchecked")
+		Collection<MailMessage> messages = (Collection<MailMessage>) query.getResultList();
+		
 		return messages;
 	}
 	

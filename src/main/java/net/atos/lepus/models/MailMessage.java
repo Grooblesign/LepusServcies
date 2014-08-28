@@ -23,6 +23,11 @@ public class MailMessage {
 	String message;
 	
 	@XmlElement
+	public int getId() {
+		return id;
+	}
+
+	@XmlElement
 	public int getFrom() {
 		return from;
 	}
