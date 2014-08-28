@@ -18,7 +18,7 @@ import org.jboss.logging.Logger;
         @ActivationConfigProperty(propertyName = "destinationType",
                                   propertyValue = "javax.jms.Queue"),
         @ActivationConfigProperty(propertyName = "destination",
-        						  propertyValue = "queue/test")
+        						  propertyValue = "queue/mail")
     })
 public class ReceiveMailBean implements MessageListener {
 

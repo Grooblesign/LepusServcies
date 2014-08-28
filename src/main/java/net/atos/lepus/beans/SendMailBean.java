@@ -17,7 +17,7 @@ public class SendMailBean {
 	@Resource(mappedName = "java:/JmsXA")
 	ConnectionFactory connectionFactory;
 
-	@Resource(mappedName = "java:jboss/exported/jms/queue/test")
+	@Resource(mappedName = "java:jboss/exported/jms/queue/mail")
 	Queue testQueue;
 
 	public SendMailBean() {}
