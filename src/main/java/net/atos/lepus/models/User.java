@@ -20,6 +20,13 @@ public class User {
 	String password;
 	String wibble;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -39,8 +46,5 @@ public class User {
 	}
 	public void setWibble(String wibble) {
 		this.wibble = wibble;
-	}
-	public int getId() {
-		return id;
 	}
 }

@@ -2,7 +2,9 @@ package net.atos.lepus.DAOs;
 
 import java.util.Collection;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -11,6 +13,7 @@ import net.atos.lepus.models.User;
 
 import org.jboss.logging.Logger;
 
+@Stateless
 public class UserDAOImpl implements UserDAO {
 
 	static Logger logger = Logger.getLogger(UserDAOImpl.class);  
@@ -20,25 +23,43 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int insert(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		logger.info("insert in");
+		
+		entityManager.persist(user);
+
+		logger.info("insert out");
+
+		return user.getId();
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		entityManager.remove(find(id));
 		return false;
 	}
 
 	@Override
 	public User find(int id) {
-		return entityManager.find(User.class, id);
+		logger.info("find in");
+		
+		User user = entityManager.find(User.class, id);
+
+		logger.info("user = " + user);
+
+		logger.info("find out");
+		
+		return user;
 	}
 
 	@Override
 	public boolean update(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		logger.info("update in");
+		
+		entityManager.merge(user);
+
+		logger.info("update out");
+
+		return true;
 	}
 
 	@Override
@@ -67,13 +88,11 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			user = (User) query.getSingleResult();
 			
-			if (user != null) {
-				if (!(user.getName().equals(name))) {
-					user = null;
-				}
+			if (user != null && !user.getName().equals(name)) {
+				user = null;
 			}
 		} catch (NoResultException exception) {
-		
+			user = null;
 		}
 
 		logger.info("findByName out");
@@ -96,13 +115,11 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			user = (User) query.getSingleResult();
 			
-			if (user != null) {
-				if (!(user.getWibble().equals(wibble))) {
-					user = null;
-				}
+			if (user != null && !user.getWibble().equals(wibble)) {
+				user = null;
 			}
 		} catch (NoResultException exception) {
-		
+			user = null;
 		}
 
 		logger.info("findByWibble out");

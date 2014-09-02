@@ -1,6 +1,13 @@
-C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\HelloService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\models\User.java
 C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\beans\ReceiveMailBean.java
 C:\dev\Lepus\LepusServcies-master\src\test\java\TempUnitTest.java
-C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\models\MailMessage.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\RepoService.java
 C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\beans\SendMailBean.java
 C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\MailService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\DAOs\UserDAOImpl.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\UserService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\AuthenticationService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\HelloService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\services\HelloSoapService.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\DAOs\UserDAO.java
+C:\dev\Lepus\LepusServcies-master\src\main\java\net\atos\lepus\models\MailMessage.java
