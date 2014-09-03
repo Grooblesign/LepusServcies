@@ -26,7 +26,6 @@ public class AuthenticationService {
 	@Path("/wibble")
 	@Produces("application/json")
 	public Response getUserForWibbleInJson(@FormParam("wibble") String wibble) {
-
 		return getUserForWibble(wibble);
 	}
 	
@@ -35,7 +34,6 @@ public class AuthenticationService {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response getUserForWibbleInJson2(AuthenticationUser user) {
-
 		return getUserForWibble(user.getWibble());
 	}
 
@@ -43,14 +41,10 @@ public class AuthenticationService {
 	@Path("/wibble")
 	@Produces("application/xml")
 	public Response getUserForWibbleInXML(@FormParam("wibble") String wibble) {
-		
 		return getUserForWibble(wibble);
 	}
 	
 	private Response getUserForWibble(String wibble) {
-		
-		logger.info("getUserForWibble in");
-		
 		Response response= null;
 
 		try {
@@ -66,8 +60,6 @@ public class AuthenticationService {
 			response = Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
 		
-		logger.info("getUserForWibble out");
-
 		return response;
 	}
 	
@@ -75,7 +67,6 @@ public class AuthenticationService {
 	@Path("/user")
 	@Produces("application/json")
 	public Response getUserForCredentialsInJson(@FormParam("username") String username, @FormParam("password") String password) {
-		
 		return getUserForCredentials(username, password);
 	}
 	
@@ -84,13 +75,6 @@ public class AuthenticationService {
 	@Consumes("application/json")
 	@Produces("application/json")
 	public Response getUserForCredentialsInJson2(AuthenticationUser user) {
-		logger.info("getUserForCredentialsInJson2 in");
-		
-		logger.info(user.getUsername());
-		logger.info(user.getPassword());
-
-		logger.info("getUserForCredentialsInJson2 out");
-
 		return getUserForCredentials(user.getUsername(), user.getPassword());
 	}
 	
@@ -98,14 +82,10 @@ public class AuthenticationService {
 	@Path("/user")
 	@Produces("application/xml")
 	public Response getUserForCredentialsInXML(@FormParam("username") String username, @FormParam("password") String password) {
-		
 		return getUserForCredentials(username, password);
 	}
 	
 	private Response getUserForCredentials(String username, String password) {
-		
-		logger.info("getUserForCredentials in");
-		
 		Response response= null;
 
 		try {
@@ -124,8 +104,6 @@ public class AuthenticationService {
 			logger.error("Exception: " + exception.getClass().toString() + " - " + exception.getMessage());
 			response = Response.status(Status.INTERNAL_SERVER_ERROR).build();
 		}
-		
-		logger.info("getUserForCredentials out");
 		
 		return response;
 	}
