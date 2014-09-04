@@ -1,11 +1,1 @@
-net\atos\lepus\services\HelloSoapService.class
-net\atos\lepus\services\RepoService.class
 TempUnitTest.class
-net\atos\lepus\DAOs\UserDAO.class
-net\atos\lepus\services\HelloService.class
-net\atos\lepus\DAOs\UserDAOImpl.class
-net\atos\lepus\services\MailService.class
-net\atos\lepus\beans\ReceiveMailBean.class
-net\atos\lepus\beans\SendMailBean.class
-net\atos\lepus\models\MailMessage.class
-net\atos\lepus\models\User.class
